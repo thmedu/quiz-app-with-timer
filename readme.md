@@ -1,0 +1,3 @@
+## aplicativo de teste com cronômetro usando HTML CSS e JavaScript
+
+ Este aplicativo foi projetado para apresentar aos usuários um conjunto selecionado de perguntas, cada uma acompanhada por um cronômetro de contagem regressiva, proporcionando uma experiência de teste interativa e com limite de tempo. Além disso, o aplicativo acompanha o progresso dos usuários, criando um ambiente de teste envolvente e dinâmico. Vamos começar a criar um aplicativo de teste cativante que combina funcionalidade com uma interface de usuário intuitiva.
