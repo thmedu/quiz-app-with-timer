@@ -1,5 +1,4 @@
 // Array de objetos contendo as perguntas, opções e respostas
-// Array de objetos contendo as perguntas, opções e respostas
 const quizData = [
   {
     prompt: `Em qual elemento HTML nós colocamos o JavaScript?`,
@@ -160,10 +159,15 @@ function checkAnswer(event) {
   const correctAnswer = quizData[initialState.currentQuestionIndex].answer;
   const isCorrect = selectedAnswer === correctAnswer;
   displayFeedback(isCorrect);
-  if (!isCorrect) {
+  if (isCorrect) {
+    respostaCorretaSelecionada(); // Adiciona confetes para respostas corretas
+  } else {
     decreaseTime();
   }
   setTimeout(() => {
+    // Limpar feedback após 1 segundo
+    feedbackEl.textContent = "";
+    feedbackEl.classList.add("hide");
     initialState.currentQuestionIndex++;
     if (initialState.currentQuestionIndex < quizData.length) {
       showQuestion();
@@ -173,16 +177,48 @@ function checkAnswer(event) {
   }, 2000);
 }
 
-// Exibir feedback da resposta
+// Função para exibir o feedback com animação
 function displayFeedback(isCorrect) {
-  feedbackEl.textContent = isCorrect
-    ? "Correto!"
-    : `Errado! A resposta correta era ${
-        quizData[initialState.currentQuestionIndex].answer
-      }.`;
-  feedbackEl.style.color = isCorrect ? "green" : "red";
+  const feedbackMessage = isCorrect ? "Correto!" : `Errado! A resposta correta era ${quizData[initialState.currentQuestionIndex].answer}.`;
+  const feedbackColor = isCorrect ? "green" : "red";
+  const feedbackIconSrc = isCorrect
+    ? "https://cdn.lordicon.com/cqofjexf.json"
+    : "https://cdn.lordicon.com/ysheqztl.json";
+
+  // Exibir mensagem de feedback
+  feedbackEl.textContent = feedbackMessage;
+  feedbackEl.style.color = feedbackColor;
   feedbackEl.classList.remove("hide");
+
+  // Adicionar ícone animado
+  const animationContainer = document.createElement("div");
+  animationContainer.classList.add("animation-container");
+  const animation = document.createElement("lord-icon");
+  animation.setAttribute("src", feedbackIconSrc);
+  animation.setAttribute("trigger", "loop");
+  animation.style.width = "70px";
+  animation.style.height = "70px";
+  animationContainer.appendChild(animation);
+  feedbackEl.appendChild(animationContainer);
+
+  // Lógica adicional aqui, se necessário
 }
+// Função para adicionar animação de feedback
+function adicionarAnimacaoFeedback(animationClass, duration) {
+  const animation = document.createElement("div");
+  animation.classList.add(animationClass);
+  animation.style.left = `${Math.random() * 100}%`;
+  document.body.appendChild(animation);
+  setTimeout(() => {
+    animation.remove();
+  }, duration);
+}
+
+// Uso:
+function respostaCorretaSelecionada() {
+  adicionarAnimacaoFeedback("confetti", 1000); // Adiciona a animação de confete
+}
+
 
 // Diminuir o tempo
 function decreaseTime() {
@@ -252,22 +288,4 @@ if (tempoRestante <= 10) {
   timerElement.classList.add("warning");
 } else {
   timerElement.classList.remove("warning");
-}
-// Adicione este código JavaScript ao seu arquivo script.js
-
-function addConfetti() {
-  const confetti = document.createElement("div");
-  confetti.classList.add("confetti");
-  confetti.style.left = `${Math.random() * 100}%`;
-  document.body.appendChild(confetti);
-  setTimeout(() => {
-    confetti.remove();
-  }, 3000);
-}
-
-// Use a função addConfetti() quando uma resposta correta for selecionada
-function respostaCorretaSelecionada() {
-  // Selecione a resposta correta e faça algo com ela
-  // Por exemplo:
-  addConfetti();
 }

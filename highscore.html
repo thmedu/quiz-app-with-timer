@@ -5,14 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img/icons8-brain-out-96.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./highScore.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+
     <title>Desafio JavaScript</title>
 </head>
 
 <body>
     <div class="scores">
-        <h1><i class="fas fa-trophy"></i> Potuação mais Alta</h1>
+        <h1>
+            <lord-icon src="https://cdn.lordicon.com/hgqdtxby.json" trigger="loop" style="width:50px;height:50px">
+            </lord-icon>
+           Melhor Pontuação
+        </h1>
         <ol id="highscores"></ol>
         <a href="index.html">
             <button><i class="fas fa-redo"></i> Reiniciar</button>

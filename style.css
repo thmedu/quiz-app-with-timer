@@ -6,12 +6,15 @@
   margin: 0;
   padding: 0;
 }
-
 body {
-  background-image: url("");
+  background-image: url("./img/fundo.jpg");
   background-size: cover; /* Para cobrir todo o tamanho do corpo */
   background-position: center; /* Para centralizar a imagem */
-  color: #262626c1; /* Cor do texto */
+  background-repeat: repeat; /* Para evitar repetir a imagem */
+  align-items: center;
+}
+a {
+  text-decoration: none; /* Remove o sublinhado */
 }
 
 .quiz,
@@ -19,21 +22,23 @@ body {
   margin: 50px auto;
   max-width: 600px;
   padding: 20px;
-  background-color: #ffd500f3;
+  background-color: #ffffffcf;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(51, 51, 51, 0);
 }
 
 #top {
-  color: rgb(16, 16, 16);
+  color: rgb(0, 0, 0);
   font-size: 24px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adicionando sombra ao texto */
+  margin-bottom: 1rem; /* Adicionando margem na parte inferior */
 }
 
 .containerNew {
-  border: 2px solid #ffffff00;
+  border: 2px solid #69696980;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -43,12 +48,23 @@ body {
   max-height: 80vh;
   width: 50%;
   padding: 10px;
-  background-color: #000000f0;
+  background: linear-gradient(to bottom right, #292929, #000000); /* Gradiente de preto para a cor de fundo atual */
 }
-
+/* Estilos para o parágrafo */
 p {
   margin: 15px 0;
+  letter-spacing: 2px;
   line-height: 1.5;
+  color: #000; /* Cor do texto */
+}
+
+/* Estilos para o título de nível 2 */
+h2 {
+  font-size: 18px; /* Tamanho da fonte */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adicionando sombra ao texto */
 }
 
 .landing {
@@ -56,26 +72,29 @@ p {
   margin-top: 50px;
 }
 
-.scoresHeader {
+.scoresHeader,
+.timer p {
   position: absolute;
+  font-size: 18px;
+}
+
+.scoresHeader {
   top: 15px;
   left: 15px;
-  font-size: 18px;
 }
 
-.timer {
-  position: absolute;
+.timer p {
   top: 15px;
   right: 15px;
-  font-size: 18px;
   transition: color 0.5s;
+  color: #fff; /* Cor do texto */
 }
 
-.timer.default {
+.timer .default {
   color: #f9f4f4;
 }
 
-.timer.warning {
+.timer .warning {
   color: #ff0000;
 }
 
@@ -86,15 +105,17 @@ button {
   color: #fff;
   background-color: #000000f3;
   box-shadow: 0 0 10px rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0;
   padding: 15px 20px;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  font-size: 16px; /* Ajuste o tamanho do texto conforme necessário */
+  transition: background-color 0.3s, transform 0.2s ease-in-out; /* Adicionando transição para background-color e transform */
+  animation: buttonHoverAnimation 8s infinite alternate; /* Adicionando animação de leve movimento */
 }
 
 button:hover {
-  background-color: #2a8d12;
+  background-color: #ffc738;
+  color: #000;
 }
 
 .options button {
@@ -142,17 +163,46 @@ li:nth-child(even) {
 
 @media screen and (max-width: 768px) {
   .containerNew {
-    width: 80%;
+    width: 90%;
   }
 }
 
 @media screen and (max-width: 575px) {
   .containerNew {
-    width: 90%;
+    width: 100%;
   }
 
   .quiz,
-  .scores {
+  .scores 
+  .footer{
     max-width: 90%;
   }
+}
+
+@keyframes buttonHoverAnimation {
+  from {
+    transform: translateX(-2px); /* Movimento para a esquerda */
+  }
+  to {
+    transform: translateX(2px); /* Movimento para a direita */
+  }
+}
+
+/* Estilos para o rodapé */
+footer {
+  text-align: center;
+  margin-top: 20px; /* Margem superior para separar do conteúdo principal */
+  padding: 10px;
+  background-color: #33333300; /* Cor de fundo */
+  color: #ffffff; /* Cor do texto */
+}
+
+footer p {
+  margin-bottom: 0; /* Remover margem inferior do parágrafo */
+  color: #f9f4f4;
+}
+
+footer lord-icon {
+  margin-right: 5px; /* Margem à direita para separar o ícone do texto */
+  color: #f9f4f4;
 }

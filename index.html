@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <title>Desafio do Código JavaScript</title>
 </head>
 
@@ -14,8 +15,11 @@
         <header>
             <div>
                 <a href="./highscore.html">
-                    <button class="scores-header" id="view-high-scores"><i class="fas fa-trophy"></i> Melhores
-                        Resultados</button>
+                    <button class="scores-header" id="view-high-scores">
+                        <lord-icon src="https://cdn.lordicon.com/hgqdtxby.json" trigger="loop"
+                            style="width:30px;height:30px">
+                        </lord-icon>
+                       <h3>Resultados</h3></button>
                 </a>
             </div>
             <div class="timer">
@@ -25,6 +29,10 @@
         <main class="quiz">
             <div id="quiz-start">
                 <div class="landing" id="start-screen">
+                    <lord-icon src="https://cdn.lordicon.com/ofzpbawy.json" trigger="loop" stroke="bold"
+                        colors="primary:#121331,secondary:#ffffff,tertiary:#4bb3fd,quaternary:#ffc738"
+                        style="width:100px ;height:100px">
+                    </lord-icon>
                     <h1 id="top">Quiz JavaScript</h1>
                     <h2>Vamos testar seu conhecimento em JS</h2>
                     <p>
@@ -49,6 +57,11 @@
             </div>
             <div id="feedback" class="feedback hide"></div>
         </main>
+        <footer>
+            <div>
+                <p>Desenvolvido por com <i class="fas fa-heart"></i>  por Thomas  <i class="fas fa-code"></i> </p>
+            </div>
+        </footer>
     </div>
     <script src="./script.js"></script>
 </body>

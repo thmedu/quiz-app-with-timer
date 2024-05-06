@@ -1,34 +1,39 @@
 // highScore.js
 
 // Seleciona o botão "view-high-scores" no HTML
-let scoresBtn = document.querySelector("#view-high-scores");
+const scoresBtn = document.querySelector("#view-high-scores");
 
-// Classifica as pontuações anteriores em ordem, recuperando as pontuações do localStorage
-function printHighscores() {
-  // Obtém as pontuações salvas no localStorage e as converte para um array, ou cria um array vazio se não houver nada salvo
-  let highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-  // Classifica o array de pontuações em ordem decrescente com base na pontuação
-  highscores.sort(function (a, b) {
-    return b.score - a.score;
-  });
-  // Para cada pontuação, cria um elemento de lista (li) com o nome e a pontuação e o adiciona à lista ordenada (ol) na página
-  highscores.forEach(function (score) {
-    let liTag = document.createElement("li");
-    liTag.textContent = score.name + " - " + score.score;
-    let olEl = document.getElementById("highscores");
-    olEl.appendChild(liTag);
-  });
+// Função para imprimir a melhor pontuação
+function printHighscore() {
+  const highscore = JSON.parse(window.localStorage.getItem("highscore")) || { name: "", score: 0 };
+  const olEl = document.getElementById("highscores");
+  olEl.innerHTML = "";
+  const liTag = document.createElement("li");
+  liTag.textContent = `${highscore.name} - ${highscore.score}`;
+  olEl.appendChild(liTag);
 }
 
-// Limpa as pontuações anteriores quando os usuários clicam em limpar
-function clearHighscores() {
-  // Remove as pontuações salvas do localStorage
-  window.localStorage.removeItem("highscores");
-  // Recarrega a página para atualizar a lista de pontuações
+// Função para salvar a melhor pontuação
+function saveHighscore(name, score) {
+  const highscore = JSON.parse(window.localStorage.getItem("highscore")) || { name: "", score: 0 };
+  if (score > highscore.score) {
+    highscore.name = name;
+    highscore.score = score;
+    window.localStorage.setItem("highscore", JSON.stringify(highscore));
+  }
+}
+
+// Função para limpar a melhor pontuação
+function clearHighscore() {
+  window.localStorage.removeItem("highscore");
   window.location.reload();
 }
-// Define a função clearHighscores como manipulador de eventos quando o botão "clear" é clicado
-document.getElementById("clear").onclick = clearHighscores;
 
-// Chama a função printHighscores para exibir as pontuações na página
-printHighscores();
+// Adiciona o evento de clique para limpar a melhor pontuação
+document.getElementById("clear").addEventListener("click", clearHighscore);
+
+// Imprime a melhor pontuação ao carregar a página
+printHighscore();
+
+// Exporta a função saveHighscore para ser utilizada em outros arquivos
+export { saveHighscore };
