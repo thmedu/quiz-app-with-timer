@@ -4,6 +4,11 @@ Este é um aplicativo de teste com cronômetro projetado usando HTML, CSS e Java
 
 ![alt text](image.png)
 
+
+https://github.com/thmedu/quiz-app-with-timer/assets/141462806/741d39f5-9906-4898-a3d6-cd3536092a80
+
+
+
 ## Funcionalidades
 
 - Exibe perguntas selecionadas
