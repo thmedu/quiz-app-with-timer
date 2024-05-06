@@ -1,6 +1,7 @@
 # Teste de Aplicativo com Cronômetro
 
 Este é um aplicativo de teste com cronômetro projetado usando HTML, CSS e JavaScript. Ele apresenta aos usuários um conjunto selecionado de perguntas, cada uma acompanhada por um cronômetro de contagem regressiva, proporcionando uma experiência de teste interativa e com limite de tempo. O aplicativo também acompanha o progresso dos usuários, criando um ambiente de teste envolvente e dinâmico.
+
 ![alt text](image.png)
 
 ## Funcionalidades
