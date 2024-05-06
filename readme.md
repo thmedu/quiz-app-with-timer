@@ -39,6 +39,3 @@ Este aplicativo foi desenvolvido com carinho por [Seu Nome] usando as seguintes 
 - CSS
 - JavaScript
 
-## Licença
-
-Este projeto está licenciado sob a [Licença XYZ](https://exemplo.com/licenca).
